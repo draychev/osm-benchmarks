@@ -1,6 +1,6 @@
 # ingress-benchmarks
 
-This document shows benchmark results from the following 3 scenarious:
+This document shows benchmark results from the following 3 scenarios:
 
 1. Contour + OSM - Contour is given an mTLS certificate to participate in the mesh
 ![Contour + OSM](./images/contour-out.png "Contour + OSM")
