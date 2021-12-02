@@ -8,9 +8,9 @@ This document shows benchmark results from the following 3 scenarious:
 
 
 The experiment was ran on 3 unique AKS clusters with the same characteristics.
-1. run--ingress--contour.sh
-2. run--ingress--nginx.sh
-3. run--ingress--nginx-inmesh.sh
+1. [run--ingress--contour.sh](./run--ingress--contour.sh)
+2. [run--ingress--nginx.sh](./run--ingress--nginx.sh)
+3. [run--ingress--nginx-inmesh.sh](./run--ingress--nginx-inmesh.sh)
 
 We issue 1000 cURL commands using:
 ```bash
@@ -19,12 +19,18 @@ for x in $(seq 1000); do
 done
 ```
 
+The results of the `cURL` command are in the following files:
+1. [contour-out.tsv](./contour-out.tsv)
+2. [nginx-out.tsv](./nginx-out.tsv)
+3. [nginx-inmesh.tsv](./nginx-inmesh.tsv)
+
+
 The `cURL` command is configured with `~/.curlrc`:
 ```shell
 -w "dnslookup: %{time_namelookup} | connect: %{time_connect} | appconnect: %{time_appconnect} | pretransfer: %{time_pretransfer} | starttransfer: %{time_starttransfer} | total: %{time_total} | size: %{size_download}\n"
 ```
-| scenario | conn | pre | start | total | vs NGINX inside the mesh |
-|-------|---|---|---|---|---|
-|NGINX Inside the Mesh| 0.187595| 0.187654| 0.383522| 0.383575| |
-|NGINX Outside the Mesh| 0.184945| 0.185003| 0.371933| 0.371986| 0.012 |
-|Contour Outside the Mesh| 0.18523| 0.18529| 0.372467| 0.372521| 0.011 |
+| # | scenario | conn | pre | start | total | vs NGINX inside the mesh |
+|---|---|---|---|---|---|---|
+|1. | Contour Outside the Mesh | 0.18523| 0.18529| 0.372467| 0.372521| 0.011 |
+|2. | NGINX Outside the Mesh | 0.184945| 0.185003| 0.371933| 0.371986| 0.012 |
+|3. | NGINX Inside the Mesh | 0.187595| 0.187654| 0.383522| 0.383575| |
