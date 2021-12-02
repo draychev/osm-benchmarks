@@ -24,12 +24,18 @@ The results of the `cURL` command are in the following files:
 2. [nginx-out.tsv](./nginx-out.tsv)
 3. [nginx-inmesh.tsv](./nginx-inmesh.tsv)
 
-
 The `cURL` command is configured with `~/.curlrc`:
 ```shell
 -w "dnslookup: %{time_namelookup} | connect: %{time_connect} | appconnect: %{time_appconnect} | pretransfer: %{time_pretransfer} | starttransfer: %{time_starttransfer} | total: %{time_total} | size: %{size_download}\n"
 ```
-| # | scenario | conn | pre | start | total | vs NGINX inside the mesh |
+We get the average values for each column with:
+```bash
+cat nginx-inmesh.tsv | awk -v N=5 '{ sum += $N } END { if (NR > 0) print sum / NR }'
+```
+
+The cURL output is averaged in the following table:
+
+| # | scenario | connect | pretransfer | starttransfer | total | vs NGINX inside the mesh |
 |---|---|---|---|---|---|---|
 |1. | Contour Outside the Mesh | 0.18523| 0.18529| 0.372467| 0.372521| 0.011 |
 |2. | NGINX Outside the Mesh | 0.184945| 0.185003| 0.371933| 0.371986| 0.012 |
