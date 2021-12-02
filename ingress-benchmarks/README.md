@@ -23,21 +23,8 @@ The `cURL` command is configured with `~/.curlrc`:
 ```shell
 -w "dnslookup: %{time_namelookup} | connect: %{time_connect} | appconnect: %{time_appconnect} | pretransfer: %{time_pretransfer} | starttransfer: %{time_starttransfer} | total: %{time_total} | size: %{size_download}\n"
 ```
-| NGINX | conn | pre | start | total |
+| scenario | conn | pre | start | total |
 |-------|---|---|---|--|
-
-Nginx Inside the Mesh:
- conn : 0.187595
- pre  : 0.187654
- start: 0.383522
- total: 0.383575
-Nginx Outside the Mesh:
- conn : 0.184945
- pre  : 0.185003
- start: 0.371933
- total: 0.371986
-Contour Outside the Mesh:
- conn : 0.18523
- pre  : 0.18529
- start: 0.372467
- total: 0.372521
+|NGINX Inside the Mesh| 0.187595| 0.187654| 0.383522| 0.383575|
+|NGINX Outside the Mesh| 0.184945| 0.185003| 0.371933| 0.371986|
+|Contour Outside the Mesh| 0.18523| 0.18529| 0.372467| 0.372521|
