@@ -34,3 +34,7 @@ The `cURL` command is configured with `~/.curlrc`:
 |1. | Contour Outside the Mesh | 0.18523| 0.18529| 0.372467| 0.372521| 0.011 |
 |2. | NGINX Outside the Mesh | 0.184945| 0.185003| 0.371933| 0.371986| 0.012 |
 |3. | NGINX Inside the Mesh | 0.187595| 0.187654| 0.383522| 0.383575| |
+
+
+### Conclusion
+Using NGINX inside the mesh (aka sidecaring NGINX) adds 11ms latency in comparison to NGINX kept outside the mesh and given an mTLS certificate to route traffic to in-mesh pods.
