@@ -3,8 +3,14 @@
 This document shows benchmark results from the following 3 scenarious:
 
 1. Contour + OSM - Contour is given an mTLS certificate to participate in the mesh
-2. Nginx + OSM - Nginx is given an mTLS cert
-3. Nginx inside OSM - Nginx is installed in a namespace, which participates in the mesh and is sidecared with an Envoy proxy (one pod 2 proxies - one Nginx, one Envoy)
+![Contour + OSM](./images/contour-out.png "Contour + OSM")
+
+2. NGINX + OSM - NGINX is given an mTLS cert
+![Nginx + OSM](./images/nginx-out.png "NGINX + OSM")
+
+
+3. NGINX in the OSM mesh - Nginx is installed in a namespace, which participates in the mesh and is sidecared with an Envoy proxy (one pod 2 proxies - one Nginx, one Envoy)
+![NGINX inmesh](./images/nginx-inmesh.png "NGINX inmesh")
 
 
 The experiment was ran on 3 unique AKS clusters with the same characteristics.
